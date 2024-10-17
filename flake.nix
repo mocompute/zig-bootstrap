@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-24.05";
     utils.url = "github:numtide/flake-utils";
   };
   outputs = { self, nixpkgs, utils }: utils.lib.eachDefaultSystem (system:
@@ -13,14 +13,8 @@
           bashInteractive
           cmake
           ninja
-        ] ++ (with llvmPackages_19; [
-          clang
-          clang-unwrapped
-          lld
-          llvm
-        ]);
-
-        hardeningDisable = [ "all" ];
+          python3
+        ];
       };
     }
   );
